@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { setCookie } from "cookies-next";
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -32,9 +33,9 @@ const LoginPage = () => {
                 credentials: 'include'
             })
                 .then((response) => response.json())
-                .then((data) => document.cookie = data.cookie)
+                .then((data) => setCookie('token', data.token, { sameSite: 'none' }))
                 .then(() => window.location.href = '/dashboard')
-                .catch(error => document.getElementById('login-warning').classList.remove('hidden'));
+                .catch((error) => console.log(error));
         }
         else
             document.getElementById('login-warning').classList.remove('hidden');

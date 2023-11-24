@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { setCookie } from "cookies-next";
 
 const SignupPage = () => {
     const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const SignupPage = () => {
                 credentials: 'include'
             })
             .then((response) => response.json())
-            .then((data) => document.cookie = data.cookie)
+            .then((data) => setCookie('token', data.token, { sameSite: 'none' }))
             .then(() => window.location.href = '/dashboard')
             .catch(error => console.log(error));
             return;

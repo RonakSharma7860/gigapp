@@ -12,6 +12,7 @@ const UserDashboard = () => {
         if(!hasCookie('token'))
             window.location.href = '/unauthenticated';
         const token = getCookie('token');
+        console.log(token);
         fetch(`${process.env['NEXT_PUBLIC_SERVER_URL']}/session`, {
             method: 'GET',
             cache: 'no-store',
