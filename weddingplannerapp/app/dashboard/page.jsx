@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
+import { getCookie, hasCookie } from "cookies-next";
 
 const UserDashboard = () => {
 
@@ -8,10 +9,14 @@ const UserDashboard = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        if(!hasCookie('token'))
+            window.location.href = '/unauthenticated';
+        const token = getCookie('token');
         fetch(`${process.env['NEXT_PUBLIC_SERVER_URL']}/session`, {
             method: 'GET',
             cache: 'no-store',
-            credentials: 'include'
+            credentials: 'include',
+            headers: {  'Authorization': token }
         })
             .then((response) => response.json())
             .then((data) => {
