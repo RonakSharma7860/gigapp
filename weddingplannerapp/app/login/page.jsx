@@ -34,7 +34,7 @@ const LoginPage = () => {
             })
                 .then((response) => response.json())
                 .then((data) => setCookie('token', data.token))
-                // .then(() => window.location.href = '/dashboard')
+                .then(() => window.location.href = '/dashboard')
                 .catch((error) => console.log(error))
         }
         else
