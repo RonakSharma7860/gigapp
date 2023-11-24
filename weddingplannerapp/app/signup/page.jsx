@@ -38,7 +38,7 @@ const SignupPage = () => {
                 credentials: 'include'
             })
             .then((response) => response.json())
-            .then((data) => setCookie('token', data.token, { sameSite: 'none' }))
+            .then((data) => setCookie('token', data.token))
             .then(() => window.location.href = '/dashboard')
             .catch(error => console.log(error));
             return;
