@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 
-export default function VendorPage() {
+const VendorPage = () => {
     const [vendorName, setVendorName] = useState('');
     const [vendorCategory, setVendorCategory] = useState('catering');
     const [vendorContact, setVendorContact] = useState('');
@@ -60,7 +60,6 @@ export default function VendorPage() {
         <main className="flex flex-col items-center justify-center h-screen bg-gray-100">
             <h2 className="text-2xl font-bold mb-10">Vendor Regitration</h2>
             <a href="/dashboard" className='mb-5 underline absolute top-5 left-5'>Return to Dashboard</a>
-            <form onSubmit={handleSubmit} className='flex flex-col h-max w-max'>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                         Vendor Name
@@ -119,13 +118,14 @@ export default function VendorPage() {
                 <div className="flex items-center justify-end">
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="submit"
+                        onClick={handleSubmit}
                     >
                         {loading ? 'saving...' : 'save'}
                     </button>
                 </div>
                 <p className='text-red-400 mt-5'>{error}</p>
-            </form>
         </main>
     );
 };
+
+export default VendorPage;

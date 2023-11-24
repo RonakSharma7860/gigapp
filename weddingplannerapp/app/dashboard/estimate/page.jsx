@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
 import VendorList from '@/components/VendorList';
-import VendorCard from '@/components/VendorCard';
 
 const EstimatePage = () => {
     const [selectedVendors, setSelectedVendors] = useState([]);

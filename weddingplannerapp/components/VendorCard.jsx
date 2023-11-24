@@ -1,5 +1,8 @@
 'use client'
-export default VendorCard = ({ vendor, onSelect }) => {
+
+import { useState } from 'react';
+
+const VendorCard = ({ vendor, onSelect }) => {
     const [isSelected, setIsSelected] = useState(false);
 
     const handleCheckboxChange = () => {
@@ -16,3 +19,5 @@ export default VendorCard = ({ vendor, onSelect }) => {
         </div>
     );
 };
+
+export default VendorCard;
