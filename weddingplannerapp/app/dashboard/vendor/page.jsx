@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import { getCookie } from 'cookies-next';
 
 const VendorPage = () => {
     const [vendorName, setVendorName] = useState('');
@@ -38,6 +39,7 @@ const VendorPage = () => {
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': getCookie('token'),
             },
             body: JSON.stringify({
                 name: vendorName,

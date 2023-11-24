@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import VendorList from '@/components/VendorList';
+import { getCookie } from 'cookies-next';
 
 const EstimatePage = () => {
     const [selectedVendors, setSelectedVendors] = useState([]);
@@ -11,7 +12,10 @@ const EstimatePage = () => {
         fetch(`${process.env['NEXT_PUBLIC_SERVER_URL']}/vendor`, {
             method: 'GET',
             cache: 'no-store',
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                'Authorization': getCookie('token'),
+            }
         })
             .then(response => response.json())
             .then(data => setVendors(data.vendors))

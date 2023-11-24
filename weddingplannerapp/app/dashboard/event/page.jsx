@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { getCookie } from 'cookies-next';
 
 const WeddingPage = () => {
     const [date, setDate] = useState('');
@@ -14,7 +15,10 @@ const WeddingPage = () => {
         fetch(`${process.env['NEXT_PUBLIC_SERVER_URL']}/wedding`, {
             method: 'GET',
             cache: 'no-store',
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                'Authorization': getCookie('token'),
+            },
         })
             .then(async (response) => {
                 console.log(response.status)
@@ -65,7 +69,8 @@ const WeddingPage = () => {
             method: 'POST',
             credentials: 'include',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': getCookie('token'),
             },
             body: JSON.stringify({
                 name: name,
