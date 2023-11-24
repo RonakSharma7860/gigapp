@@ -11,13 +11,14 @@ const WeddingPage = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
+    const token = getCookie('token');
     useEffect(() => {
         fetch(`${process.env['NEXT_PUBLIC_SERVER_URL']}/wedding`, {
             method: 'GET',
             cache: 'no-store',
             credentials: 'include',
             headers: {
-                'Authorization': getCookie('token'),
+                'Authorization': token,
             },
         })
             .then(async (response) => {

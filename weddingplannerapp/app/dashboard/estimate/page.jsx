@@ -7,6 +7,7 @@ const EstimatePage = () => {
     const [selectedVendors, setSelectedVendors] = useState([]);
     const [vendors, setVendors] = useState([]);
     const [error, setError] = useState('fetching vendors...');
+    const token = getCookie('token');
 
     useEffect(() => {
         fetch(`${process.env['NEXT_PUBLIC_SERVER_URL']}/vendor`, {
@@ -14,7 +15,7 @@ const EstimatePage = () => {
             cache: 'no-store',
             credentials: 'include',
             headers: {
-                'Authorization': getCookie('token'),
+                'Authorization': token,
             }
         })
             .then(response => response.json())

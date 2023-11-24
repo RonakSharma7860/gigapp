@@ -33,13 +33,13 @@ const VendorPage = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setLoading(true);
-
+        const token = getCookie('token');
         fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/vendor`, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': getCookie('token'),
+                'Authorization': token,
             },
             body: JSON.stringify({
                 name: vendorName,
