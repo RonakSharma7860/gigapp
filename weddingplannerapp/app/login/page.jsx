@@ -42,7 +42,7 @@ const LoginPage = () => {
     };
 
     return (
-        <main className="flex flex-col h-screen justify-center items-center bg-pink-100">
+        <main className="flex flex-col h-screen justify-center items-center bg-gradient-to-br from-pink-200 to-pink-400 via-fuchsia-300">
             <form onSubmit={handleSubmit} className="flex flex-col gap-10 text-xl items-center justify-center h-full w-full">
                 <h2 className="text-4xl font-bold mb-10">🔑 Login</h2>
                 <a href="/signup" className="underline">Signup instead?</a>
