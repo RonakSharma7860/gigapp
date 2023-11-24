@@ -28,7 +28,7 @@ const UserDashboard = () => {
 
     return (
         <main>
-            <section id='about-us' className="flex flex-col items-center justify-center gap-24 h-screen w-screen bg-pink-100">
+            <section id='about-us' className="flex flex-col items-center justify-center gap-24 h-screen w-screen bg-gradient-to-br from-pink-200 to-pink-400 via-fuchsia-300">
                 <button onClick={() => {document.cookie = 'token=none'; window.location.href = '/'}} className="absolute top-0 right-0 m-5 p-2 rounded-lg shadow-md bg-red-500 text-white hover:scale-105">Logout</button>
                 <h2 className="text-4xl font-bold text-center">Welcome</h2>
                 <h3>{loading? 'loading...': user}</h3>

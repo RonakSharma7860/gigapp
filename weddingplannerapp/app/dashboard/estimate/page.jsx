@@ -38,7 +38,7 @@ const EstimatePage = () => {
     };
 
     return (
-        <main className="flex flex-col h-screen w-screen p-10 bg-sky-200">
+        <main className="flex flex-col h-screen w-screen p-10 bg-gradient-to-tr from-blue-600 to-sky-300 via-indigo-400">
             <a href="/dashboard" className="mb-5 underline">Return to Dashboard</a>
             <h2 className="text-2xl font-bold mb-4 bg-white w-max p-2 rounded-lg">Available Vendors:</h2>
             <p className="text-black text-xl">{error}</p>
